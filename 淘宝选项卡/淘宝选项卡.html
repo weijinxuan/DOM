@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .box {
+            position: absolute;
+            left: 30%;
+            top: 30%;
+            border: 1px solid #E4E4E4;
+        }
+
+        .box .top {
+            padding: 10px 0;
+        }
+
+        .box .top span {
+            display: inline-block;
+            padding: 0 10px;
+            margin: 0 10px;
+            font: 500 14px/20px "microsoft yahei";
+            cursor: pointer;
+        }
+
+        .box .top span.current {
+            color: orangered;
+            border-bottom: 2px solid orangered;
+        }
+
+        .box .content ul {
+            display: none;
+        }
+
+        .box .content ul.current {
+            display: block;
+            padding: 0 10px 20px 10px;
+        }
+
+        .box .content ul.current li {
+            height: 30px;
+            font: 500 14px/30px "microsoft yahei";
+        }
+
+        .box .content ul.current a:hover {
+            color: orangered;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="top" id="top_items">
+        <span class="current">公告</span>
+        <span>规则</span>
+        <span>论坛</span>
+        <span>安全</span>
+        <span>工艺</span>
+    </div>
+    <div class="content" id="content">
+        <ul class="current">
+            <li><a href="#">阿里首席平台治理官郑俊芳当选年度"质量人物"</a></li>
+            <li><a href="#"> 阿里招人工智能训练师</a> <a href="#">第二届阿里年货节启动</a></li>
+        </ul>
+        <ul>
+            <li><a href="#">不正当谋利规则变更</a> <a href="#">淘宝亲宝贝市场管理规范</a></li>
+            <li><a href="#">淘宝价格发布规范变更</a> <a href="#">店铺相关规则调整变更</a></li>
+        </ul>
+        <ul>
+            <li><a href="#">双十二开始报名啦</a> <a href="#">淘宝论坛招募志愿者</a></li>
+            <li><a href="#">名师一刻-5个亿的秘密</a> <a href="#">十八纸颠覆家具想象</a></li>
+        </ul>
+        <ul>
+            <li><a href="#">首次揭秘打假特战队——《刀尖上的舞者》</a></li>
+            <li><a href="#">千万商家喜欢这只象重交“保证金”？</a></li>
+        </ul>
+        <ul>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+        </ul>
+    </div>
+    <script>
+        var topItems = document.getElementById("top_items");
+        var spans = topItems.getElementsByTagName("span");
+        var content = document.getElementById("content");
+        var uls = content.getElementsByTagName("ul");
+        for (var i = 0; i < spans.length; i++) {
+            spans[i].index = i;
+            spans[i].onmouseover = function () {
+                for (var i = 0; i < spans.length; i++) {
+                    spans[i].className = "";
+                    uls[i].className = "";
+                }
+                this.className = "current";
+                uls[this.index].className = "current";
+            };
+        }
+
+
+    </script>
+</body>
+</html>
