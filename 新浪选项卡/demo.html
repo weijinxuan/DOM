@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            bottom: 0;
+            vertical-align: middle;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .box {
+            position: absolute;
+            padding: 5px 10px 10px 10px;
+            border: 1px solid #e4e4e4;
+            left: 30%;
+        }
+
+        .box .top {
+            height: 30px;
+        }
+
+        .box .top span {
+            float: left;
+            height: 30px;
+            width: 64px;
+            padding: 0 4px;
+            margin-left: -1px;
+            font: normal 14px/30px "microsoft yahei";
+            text-align: center;
+            border: 1px solid #e4e4e4;
+            cursor: pointer;
+        }
+
+        .box .top span.current {
+            color: orangered;
+            border-bottom: 0;
+        }
+
+        .content {
+            margin-top: 20px;
+            display: none;
+        }
+
+        .content a.content-img {
+            float: left;
+            height: 90px;
+            width: 105px;
+            margin-right: 35px;
+            text-align: center;
+        }
+
+        .currentbox {
+            display: block;
+        }
+
+        .content a.content-img span {
+            display: block;
+            font: normal 12px/20px "microsoft yahei";
+            color: #fff;
+            background-color: #000;
+        }
+
+        .content ul {
+            float: left;
+        }
+
+        .content ul li {
+            font: normal 14px/25px "microsoft yahei";
+            list-style: square;
+            color: orangered;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="top" id="top_items">
+        <span class="current">应用中心</span>
+        <span>安卓应用</span>
+        <span>安卓游戏</span>
+        <span>装机必备</span>
+        <span>新品上架</span>
+    </div>
+    <div id="content_items">
+        <div class="content currentbox">
+            <a href="#" class="content-img"><img src="01.png" alt=""/><span>随时随地：微博</span></a>
+            <ul>
+                <li><a href="#">举起手机你就是焦点：一直播</a></li>
+                <li><a href="#">微博电影，带你发现好电影</a></li>
+                <li><a href="#">随时随地畅快购物：手机淘宝</a></li>
+                <li><a href="#">全面解读体坛风云：新浪体育</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <a href="#" class="content-img"><img src="02.png" alt=""/><span>发现头条要点</span></a>
+            <ul>
+                <li><a href="#">[拍摄美化] 小咖秀：一起来飙戏</a></li>
+                <li><a href="#">[拍摄美化] 秒拍：酷炫的短视频</a></li>
+                <li><a href="#">[新闻资讯] 新浪财经：轻松赚钱</a></li>
+                <li><a href="#">[网购支付] 天猫：汇聚海量好货</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <a href="#" class="content-img"><img src="03.png" alt=""/><span>带你一起看世界</span></a>
+            <ul>
+                <li><a href="#">[聊天通讯] 有信：免费高清电话</a></li>
+                <li><a href="#">[拍摄美化] 图钉：拍摄分享社区</a></li>
+                <li><a href="#">[系统工具] WiFi神器：免费安全</a></li>
+                <li><a href="#">[影音播放] 视界是如此不同</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <a href="#" class="content-img"><img src="04.png" alt=""/><span>发现不一样的城市</span></a>
+            <ul>
+                <li><a href="#">[影音播放] 阿里星球：娱乐中心</a></li>
+                <li><a href="#">[影音播放] 优酷：重磅好戏连台</a></li>
+                <li><a href="#">[日常生活] 支付宝：生活平台</a></li>
+                <li><a href="#">[系统工具] UC浏览器：包罗万象</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <a href="#" class="content-img"><img src="05.png" alt=""/><span>天气早知道</span></a>
+            <ul>
+                <li><a href="#">阿里旅行：让你的世界触手可行</a></li>
+                <li><a href="#">滴滴出行：轻松便捷的打车服务</a></li>
+                <li><a href="#">铁路12306：火车购票便捷服务</a></li>
+                <li><a href="#">高德导航：出行必备的离线导航</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+    var topItems = document.getElementById("top_items");
+    var spans = topItems.getElementsByTagName("span");
+    var content = document.getElementById("content_items");
+    var boxs = content.getElementsByTagName("div");
+    for (var i = 0; i < spans.length; i++) {
+        spans[i].index = i;
+        spans[i].onmouseover = function () {
+            for (var i = 0; i < spans.length; i++) {
+                spans[i].className = "";
+                boxs[i].className = "content";
+            }
+            this.className = "current";
+            boxs[this.index].className = "content currentbox";
+        };
+    }
+</script>
+</body>
+</html>
