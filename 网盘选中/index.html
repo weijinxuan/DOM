@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            border: 0;
+            vertical-align: middle;
+        }
+
+        s, i {
+            font-style: normal;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        s {
+            padding: 0 10px;
+        }
+
+        table {
+            position: absolute;
+            top: 30%;
+            width: 100%;
+            margin-left: 20px;
+            border-collapse: collapse;
+
+        }
+
+        tr {
+            height: 45px;
+            font: normal 14px/45px "microsoft yahei";
+            color: silver;
+            border-bottom: 1px solid #e4e4e4;
+        }
+
+        td.one {
+            padding-right: 150px;
+        }
+
+        .th .one i {
+            border: 5px solid transparent;
+            border-bottom: 5px solid #000;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <thead class="th">
+    <tr>
+        <td class="one"><input type="checkbox" id="all"/><s>文件名</s><i></i></td>
+        <td>大小</td>
+        <td><span>修改日期</span></td>
+    </tr>
+    </thead>
+    <tbody id="tb">
+    <tr>
+        <td class="one"><input type="checkbox"/><s><img src="file.png" alt=""/></s><i>01</i></td>
+        <td></td>
+        <td><span>2016-12-22 15:02</span></td>
+    </tr>
+    <tr>
+        <td class="one"><input type="checkbox"/><s><img src="file.png" alt=""/></s><i>02</i></td>
+        <td></td>
+        <td><span>2016-12-22 15:02</span></td>
+    </tr>
+    <tr>
+        <td class="one"><input type="checkbox"/><s><img src="file.png" alt=""/></s><i>03</i></td>
+        <td></td>
+        <td><span>2016-12-22 15:02</span></td>
+    </tr>
+    <tr>
+        <td class="one"><input type="checkbox"/><s><img src="file.png" alt=""/></s><i>04</i></td>
+        <td></td>
+        <td><span>2016-12-22 15:02</span></td>
+    </tr>
+    </tbody>
+</table>
+<script>
+    var all = document.getElementById("all");
+    var tbody = document.getElementById("tb");
+    var inputs = tbody.getElementsByTagName("input");
+    var tr = tbody.getElementsByTagName("tr");
+    console.log(tr);
+    console.log(inputs);
+
+    all.onclick = function () {
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].checked = all.checked;
+            if (all.checked) {
+                tr[i].style.background = "bisque";
+            } else {
+                tr[i].style.background = "";
+            }
+        }
+    }
+    for (var i = 0; i < inputs.length; i++) {
+        inputs[i].onclick = function () {
+            var flag = true;
+            for (var i = 0; i < inputs.length; i++) {
+                if (inputs[i].checked) {
+                    tr[i].style.background = "bisque";
+                } else {
+                    tr[i].style.background = "";
+                }
+                if (!inputs[i].checked) {
+
+                    flag = false;
+                }
+            }
+            all.checked = flag;
+        };
+    }
+
+</script>
+</body>
+</html>
